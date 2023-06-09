@@ -23,6 +23,8 @@ def create_container():
     proxmox.nodes(vm_node).lxc.create(
         vmid=vm_id,
         ostemplate=vm_os,
+        password="admin",
+        net0="name=eth0,bridge=vmbr0,ip=dhcp",
         storage="local-lvm",
         memory=512,
         cores=1,
